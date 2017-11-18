@@ -1,19 +1,21 @@
 {
   "name": "hackday",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
+  "main": "src/electron-starter.js",
+  "dependencies": {
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-scripts": "1.0.17"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electron ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/apollonian11/HackDay.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/apollonian11/HackDay/issues"
-  },
-  "homepage": "https://github.com/apollonian11/HackDay#readme"
+  "devDependencies": {
+    "electron": "^1.7.9"
+  }
 }
