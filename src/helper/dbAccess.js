@@ -1,4 +1,6 @@
 var firebase = require('firebase');
+var async = require("async");
+
 var config = {
     apiKey: "AIzaSyB8TCkKdHd0kafz6ahz7RxNbkHSAj2C-bw",
     authDomain: "tidy-vent-97616.firebaseapp.com",
@@ -10,58 +12,48 @@ var config = {
 var app = firebase.initializeApp(config);
 var database = firebase.database();
 var result = [];
+var kit_info = [];
+
 function tag_search(argument) {
 	l=argument.length;
-	console.log(l);
-	for(i=0;i<l;i++){
-		database.ref().child("Tag").child(argument[i]).once('value', function(snapshot) {
-			temp = i;
-		var res = snapshot.val();
-        result.push(snapshot.val());
-        console.log(res);
-        console.log(temp+" "+l);
-     	if(temp==l-1)
-     	{
-     		//console.log(intersect(result[0], result[1]));
-     		console.log("done");
-     	}
-    	});
-	}
-	//console.log(intersect(result[0],result[1]));
-	/*database.ref().child("Tag").child(argument).once('value', function(snapshot) {
-    if(snapshot.val()){
-        //logs everything that is under /user
-         /*snapshot.forEach(function(childSnapshot) {
-      // key will be "ada" the first time and "alan" the second time
-      var key = childSnapshot.key;
-      // childData will be the actual contents of the child
-      var res = childSnapshot.val();
-        console.log(res);
-  });
-  	result.push(snapshot.val());
+	var a = [];
+	for(i=0;i<l;i++)
+		a.push(i);
 
-    }
-});*/
+	async.each(a,function(item, callback1){
+		database.ref().child("Tag").child(argument[item]).once('value', function(snapshot) {
+			var res = snapshot.val();
+	        result.push(snapshot.val());    
+	        console.log(res);
+	        callback1();   
+    	});
+	}, function(err, results){
+		var first = result[0];
+		for(i=1;i<l;i++)
+			first = intersect(first,result[i]);
+		console.log(first);
+		get_kit_info(first);
+		console.log("completed");
+	});
 }
-tag_search(['Tag1','Tag2']);
-/*
-database.ref().child("Tag").child('Tag2').once('value', function(snapshot) {
-    if(snapshot.val()){
-        //logs everything that is under /user
-         /*snapshot.forEach(function(childSnapshot) {
-      // key will be "ada" the first time and "alan" the second time
-      var key = childSnapshot.key;
-      // childData will be the actual contents of the child
-      var res = childSnapshot.val();
-        console.log(res);
-  });
-  	result[1] = snapshot.val();
-  	intersect(result[0], result[1]);
-    }
-});
-var arr1 = ["mike", "sue", "tom", "kathy", "henry"];
-    arr2 = ["howey", "jim", "sue", "jennifer", "kathy", "hank", "alex"];
-*/
+
+function get_kit_info(argument) {
+	l=argument.length;
+	var a = [];
+	for(i=0;i<l;i++)
+		a.push(i);
+	async.each(a,function(item, callback2){
+	database.ref().child("Starter-kit").child(argument[item]).once('value', function(snapshot) {
+	       kit_info.push(snapshot.val());    
+	       console.log(kit_info);
+	       callback2();   
+    	});
+	}, function(err, results){
+		console.log("completed");
+		return kit_info;
+	});
+}
+
 function intersect(a, b) {
     var t;
     if (b.length > a.length) t = b, b = a, a = t; // indexOf to loop over shorter
@@ -69,3 +61,5 @@ function intersect(a, b) {
         return b.indexOf(e) > -1;
     });
 }
+
+module.exports = {tag_search}
