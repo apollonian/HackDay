@@ -34,14 +34,29 @@
 }
 
 .InstallButton {
-    font-size: 22px;
+    font-size: 18px;
     background-color: silver;
     padding: 0 42px;
     height: 100%;
     align-items: center;
     display: flex;
+    cursor: pointer;
+}
+
+.ControlButtons {
+    flex-direction: column;
+}
+
+.CancelButton {
+    padding: 12px 0;
+    width: 100%;
+    text-align: center;
+    background-color: red;
+    cursor: pointer;
+    font-size: 18px;
 }
 
 .InstallButton {
     cursor: pointer;
+    font-size: 16px;
 }

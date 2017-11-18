@@ -6,6 +6,8 @@ export default class MainContainer extends Component {
   render() {
     return (
       <div className="MainContainer">
+        <h1>Enter the Installation Path</h1>
+        <input type="text" onChange={event => this.props.setDirectory(event.target.value)} />
         <h1>Select Your Platform and Tech Stack</h1>
         <div className="SelectionContainer">
           <a className="Button Platform Web" onClick={() => this.props.handlePlatformClick(0)}>

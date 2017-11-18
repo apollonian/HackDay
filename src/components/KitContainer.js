@@ -16,6 +16,9 @@ export default class KitContainer extends Component {
             </div>
           </div>
           <div className="ControlButtons">
+            <div className="CancelButton" onClick={() => this.props.handleKitClick(2)}>
+              CANCEL
+            </div>
             <div className="InstallButton">
               INSTALL
             </div>
