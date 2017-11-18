@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListContainer from './components/ListContainer.js';
 import MainContainer from './components/MainContainer.js';
+import KitContainer from './components/KitContainer.js';
 
 import './App.css';
 
@@ -25,10 +26,14 @@ class App extends Component {
     return (
       <div className="App">
         <ListContainer />
-        <MainContainer 
-          handlePlatformClick={this.handlePlatformClick}
-          handleTechClick={this.handleTechClick}
-        />
+        {
+          this.state.platform === null ?  
+          <MainContainer 
+            handlePlatformClick={this.handlePlatformClick}
+            handleTechClick={this.handleTechClick}
+          /> :
+          <KitContainer />   
+        }
       </div>
     );
   }
