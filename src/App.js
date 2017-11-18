@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import ListContainer from './components/ListContainer.js';
+import MainContainer from './components/MainContainer.js';
+
 import './App.css';
 
 class App extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      platform: null,
+      tech: []
+    }
+  }
+
+  handlePlatformClick = (i) => {
+    console.log('platform', i)
+  }
+
+  handleTechClick = (i) => {
+    console.log('tech', i)
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <ListContainer />
+        <MainContainer 
+          handlePlatformClick={this.handlePlatformClick}
+          handleTechClick={this.handleTechClick}
+        />
       </div>
     );
   }

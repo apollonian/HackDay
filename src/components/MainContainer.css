@@ -1,0 +1,32 @@
+.MainContainer {
+    background-color: snow;
+    margin-left: 33.33%;
+}
+
+.SelectionContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.Button {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    background-color: silver;
+    margin-left: 20px;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    font-family: Karla;
+    font-weight: 700;
+    letter-spacing: -.1px;
+    color: #fff;
+    text-align: center;
+}
+
+.Button:hover {
+    cursor: pointer;
+    opacity: .9;
+    transition: opacity .2s ease-in;
+    transform: translateY(-1px);
+}
