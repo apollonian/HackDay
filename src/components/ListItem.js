@@ -6,9 +6,11 @@ export default class ListItem extends Component {
   render () {
     return (
       <div className="ListItem" onClick={() => this.props.handleKitClick(2)}>
-        <span>Kit Name</span>
-        <span>Author Name</span>
-        <span>Stars: 200</span>
+        <div className="Inline">
+        <span className="KitName">Kit Name</span>
+        <span className="StarCount">200</span>
+        </div>
+        <span className="AuthorName">Author Name</span>
       </div>
     );
   }

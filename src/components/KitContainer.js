@@ -6,9 +6,25 @@ export default class KitContainer extends Component {
   render() {
     return (
       <div className="KitContainer">
-        <h1>{this.props.starterKitID}</h1>
-        <div className="tags">
-          <h1>Tags go here</h1>
+        <div className="KitHeader">
+          <div>
+            <h1>Kit Name</h1>
+            <div className="tags">
+              <span className="tag">React</span>
+              <span className="tag">Redux</span>
+              <span className="tag">Webpack</span>
+            </div>
+          </div>
+          <div className="ControlButtons">
+            <div className="CancelButton" onClick={() => this.props.handleKitClick(2)}>
+              CANCEL
+            </div>
+            <div className="InstallButton">
+              INSTALL
+            </div>
+          </div>
+        </div>
+        <div className="KitReadme">
         </div>
       </div>
     );

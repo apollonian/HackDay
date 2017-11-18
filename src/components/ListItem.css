@@ -1,10 +1,41 @@
 .ListItem {
     display: block;
-    padding: 10px 6px;
-    border: 1px solid silver;
-    background-color: blue;
+    padding: 12px 8px;
+    margin: 8px 12px;
+    /* border: 1px solid rgb(235, 238, 242); */
+    /* background-color: rgb(245, 248, 252); */
+    border: 1px solid rgb(238, 238, 238);
+    background-color: rgb(248, 248, 248);
+    border-radius: 2px;
 }
 
 .ListItem:hover {
     cursor: pointer;
+    transform: translateZ(0);
+    transition: all 0.12s ease-in;
+    box-shadow: 0 4px 12px rgba(0, 0, 10, 0.06);
+}
+
+.AuthorName {
+    display: block;
+}
+
+.KitName {
+    font-size: 20px;
+}
+
+.AuthorName,
+.StarCount {
+    font-size: 14px;
+}
+
+.Inline,
+.ControlButtons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Header {
+    margin: 20px;
 }

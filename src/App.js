@@ -10,6 +10,7 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = {
+      directory: null,
       starterKitID: null,
       platform: null,
       tech: [],
@@ -17,7 +18,7 @@ class App extends Component {
   }
 
   handleKitClick = (i) => {
-    console.log('kit', i)
+    this.state.starterKitID === i ? this.setState({ starterKitID: null }) : this.setState({ starterKitID: i })
   }
 
   handlePlatformClick = (i) => {
@@ -34,18 +35,26 @@ class App extends Component {
     return arr.filter(item => item !== itemToRemove)
   }
 
+  setDirectory = (e) => {
+    e === "" ?this.setState({ directory: null }) : this.setState({ directory: e });
+  }
+
   render() {
     return (
       <div className="App">
         <ListContainer handleKitClick={this.handleKitClick} />
         {
-          this.state.starterKitID === null ?
+          (this.state.starterKitID === null || this.state.directory === null) ?
           <MainContainer
             handlePlatformClick={this.handlePlatformClick}
             handleTechClick={this.handleTechClick}
+            setDirectory={this.setDirectory}
+            directory={this.state.directory}
           /> :
           <KitContainer
             starterKitID={this.state.starterKitID}
+            handleKitClick={this.handleKitClick}
+            directory={this.state.directory}
           />
         }
       </div>

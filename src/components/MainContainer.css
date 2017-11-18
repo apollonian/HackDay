@@ -1,6 +1,12 @@
 .MainContainer {
-    background-color: snow;
-    margin-left: 33.33%;
+    display: flex;
+    background-color: white;
+    margin-left: 24%;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .SelectionContainer {
@@ -14,7 +20,7 @@
     height: 100px;
     background-color: silver;
     margin-left: 20px;
-    border-radius: 12px;
+    border-radius: 50px;
     justify-content: center;
     align-items: center;
     font-family: Karla;
