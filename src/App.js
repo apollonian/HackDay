@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   handleKitClick = (i) => {
-    console.log('kit', i)
+    this.state.starterKitID === i ? this.setState({ starterKitID: null }) : this.setState({ starterKitID: i })
   }
 
   handlePlatformClick = (i) => {

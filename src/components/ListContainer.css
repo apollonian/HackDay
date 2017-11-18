@@ -1,8 +1,10 @@
 .ListContainer {
-    width: 33.33%;
-    background-color: gray;
+    width: 24%;
+    background-color: white;
     height: 100vh;
     top: 0;
     left: 0;
     position: fixed;
+    box-shadow: 0 0 1.1rem hsla(0, 0%, 4%, .11);
+    z-index: 9999;
 }
