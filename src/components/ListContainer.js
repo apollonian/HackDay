@@ -5,54 +5,21 @@ import ListItem from './ListItem.js';
 
 import './ListContainer.css';
 
+let asdf
+
 export default class ListContainer extends Component {
   render() {
+    asdf = this.props.data["Starter-kit"]
+
+    var tifOptions = Object.keys(this.props.data["Starter-kit"]).map(function(key) {
+      return <ListItem data={asdf.key} />
+    });
+
     return (
       <div className="ListContainer">
         <h1 className="Header">Featured Kits</h1>
-        <Scrollbars>
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-          <ListItem handleKitClick={this.props.handleKitClick} />
-        </Scrollbars>
+        {tifOptions}
       </div>
     );
-  }
+}
 }
