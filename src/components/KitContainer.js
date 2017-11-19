@@ -5,23 +5,17 @@ import './KitContainer.css';
 
 export default class KitContainer extends Component {
   render() {
-    console.log(this.props.data);
-    console.log(this.props.data.filter(x => {
-      console.log(x);
-      x.id == this.props.starterKitID
-    }));
-    const {name,tags} = this.props.data.filter(x => x.id == this.props.starterKitID);
-    console.log(name);
+    let asdf = this.props.data;
+    let jkl = asdf.filter((x) => x.id == this.props.starterKitID.id );
+    let tags = jkl[0].tags.map((x) => <span className="tag">{x}</span>);
     return (
       <div className="KitContainer">
         <div className="KitHeader">
           <div className="Horiz">
             <div>
-              <h1>{name}</h1>
+              <h1>{jkl[0].name}</h1>
               <div className="tags">
-                <span className="tag">React</span>
-                <span className="tag">Redux</span>
-                <span className="tag">Webpack</span>
+                {tags}
               </div>
             </div>
             <div className="ControlButtons">

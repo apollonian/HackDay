@@ -120,14 +120,13 @@ class App extends Component {
         handleKitClick={this.handleKitClick} />
         {
           this.state.starterKitID === null ?
-        // (this.state.starterKitID === null || this.state.directory === null) ?
+          // (this.state.starterKitID === null || this.state.directory === null) ?
         <MainContainer
           // handlePlatformClick={this.handlePlatformClick}
-
           handleTechClick={this.handleTechClick}
         /> :
         <KitContainer
-          data = {data}
+          data={data}
           starterKitID={this.state.starterKitID}
           handleKitClick={this.handleKitClick}
           setDirectory={this.setDirectory}
