@@ -15,14 +15,14 @@ var result = [];
 var kit_info = [];
 
 function tag_search(argument, callback) {
-	l = argument.length;
+	var l = argument.length;
 	var a = [];
-	for (i = 0; i < l; i++)
+	for (var i = 0; i < l; i++){
 		a.push(i);
-
+	}
 	async.each(a, function (item, callback1) {
 		database.ref().child("Tag").child(argument[item]).once('value', function (snapshot) {
-			var res = snapshot.val();
+			//var res = snapshot.val();
 			result.push(snapshot.val());
 			// console.log(res);
 			callback1();
@@ -30,7 +30,7 @@ function tag_search(argument, callback) {
 		});
 	}, function (err, results) {
 		var first = result[0];
-		for (i = 1; i < l; i++)
+		for (var i = 1; i < l; i++)
 			first = intersect(first, result[i]);
 		// console.log(first);
 		get_kit_info(first, (err, res) => {
@@ -44,10 +44,14 @@ function tag_search(argument, callback) {
 }
 
 function get_kit_info(argument, callback11) {
-	l = argument.length;
+	if(argument == null){
+		return kit_info;
+	}
+	var l = argument.length;
 	var a = [];
-	for (i = 0; i < l; i++)
+	for (var i = 0; i < l; i++){
 		a.push(i);
+	}
 	async.each(a, function (item, callback2) {
 		database.ref().child("Starter-kit").child(argument[item]).once('value', function (snapshot) {
 			kit_info.push(snapshot.val());
@@ -61,8 +65,11 @@ function get_kit_info(argument, callback11) {
 }
 
 function intersect(a, b) {
+	if(b == null) {
+		return ""
+	}
 	var t;
-	if (b.length > a.length) t = b, b = a, a = t; // indexOf to loop over shorter
+	if (b.length > a.length) {t = b; b = a; a = t;} // indexOf to loop over shorter
 	return a.filter(function (e) {
 		return b.indexOf(e) > -1;
 	});

@@ -1,11 +1,11 @@
-var showdown  = require('showdown');
+// var showdown  = require('showdown');
 
-var converter = new showdown.Converter();
+// var converter = new showdown.Converter();
 
-const renderMd = (mdText) => {
-    return converter.makeHtml(mdText);
-}
+// const renderMd = (mdText) => {
+//     return converter.makeHtml(mdText);
+// }
 
-module.exports = {
-    renderMd
-}
+// module.exports = {
+//     renderMd
+// }
