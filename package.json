@@ -4,6 +4,8 @@
   "private": true,
   "main": "src/electron-starter.js",
   "dependencies": {
+    "async": "^2.6.0",
+    "firebase": "^4.6.2",
     "react": "^16.1.1",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.1.1",
