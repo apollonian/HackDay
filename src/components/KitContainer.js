@@ -5,12 +5,19 @@ import './KitContainer.css';
 
 export default class KitContainer extends Component {
   render() {
+    console.log(this.props.data);
+    console.log(this.props.data.filter(x => {
+      console.log(x);
+      x.id == this.props.starterKitID
+    }));
+    const {name,tags} = this.props.data.filter(x => x.id == this.props.starterKitID);
+    console.log(name);
     return (
       <div className="KitContainer">
         <div className="KitHeader">
           <div className="Horiz">
             <div>
-              <h1>Kit Name</h1>
+              <h1>{name}</h1>
               <div className="tags">
                 <span className="tag">React</span>
                 <span className="tag">Redux</span>
@@ -18,7 +25,7 @@ export default class KitContainer extends Component {
               </div>
             </div>
             <div className="ControlButtons">
-              <div className="CancelButton" onClick={() => this.props.handleKitClick(2)}>
+              <div className="CancelButton" onClick={() => this.props.handleKitClick(this.props.starterKitID)}>
                 CANCEL
               </div>
               <div className="InstallButton">
