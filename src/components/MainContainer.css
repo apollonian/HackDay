@@ -1,6 +1,7 @@
 .MainContainer {
     display: flex;
     background-color: white;
+    background-color: #F5F8FC;
     margin-left: 24%;
     height: 100vh;
     width: 100%;
@@ -11,7 +12,13 @@
 
 .SelectionContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    padding-top: 12px;
+}
+
+.InnerSelection {
+    display: flex;
+    padding: 14px 0;
 }
 
 .Button {
