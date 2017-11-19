@@ -4,6 +4,7 @@ import './MainContainer.css';
 
 export default class MainContainer extends Component {
   render() {
+    // console.log(this.props.data["Starter-kit"].);
     return (
       <div className="MainContainer">
         <h1>Select Your Tech Stack</h1>
@@ -20,30 +21,30 @@ export default class MainContainer extends Component {
         </div> */}
         <div className="SelectionContainer">
           <div className="InnerSelection">
-            <a className="Button Tech React" onClick={() => this.props.handleTechClick(0)}>
+            <a className="Button Tech React" onClick={() => this.props.handleTechClick("react")}>
               React
             </a>
-            <a className="Button Tech React" onClick={() => this.props.handleTechClick(1)}>
+            <a className="Button Tech React" onClick={() => this.props.handleTechClick("react-native")}>
               React<br/>Native
             </a>
-            <a className="Button Tech React" onClick={() => this.props.handleTechClick(2)}>
+            <a className="Button Tech React" onClick={() => this.props.handleTechClick("preact")}>
               Preact
             </a>
-            <a className="Button Tech Electron" onClick={() => this.props.handleTechClick(3)}>
+            <a className="Button Tech Electron" onClick={() => this.props.handleTechClick("electron")}>
               Electron
             </a>
           </div>
           <div className="InnerSelection">
-            <a className="Button Tech Angular" onClick={() => this.props.handleTechClick(4)}>
+            <a className="Button Tech Angular" onClick={() => this.props.handleTechClick("angular")}>
               Angular
             </a>
-            <a className="Button Tech SASS" onClick={() => this.props.handleTechClick(5)}>
+            <a className="Button Tech SASS" onClick={() => this.props.handleTechClick("sass")}>
               SASS
             </a>
-            <a className="Button Tech Webpack" onClick={() => this.props.handleTechClick(6)}>
+            <a className="Button Tech Webpack" onClick={() => this.props.handleTechClick("webpack")}>
               Webpack
             </a>
-            <a className="Button Tech Webpack" onClick={() => this.props.handleTechClick(7)}>
+            <a className="Button Tech Webpack" onClick={() => this.props.handleTechClick("gulp")}>
               Gulp
             </a>
           </div>
