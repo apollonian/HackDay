@@ -8,7 +8,6 @@ export default class KitContainer extends Component {
     return (
       <div className="KitContainer">
         <div className="KitHeader">
-
           <div className="Horiz">
             <div>
               <h1>Kit Name</h1>
@@ -27,12 +26,10 @@ export default class KitContainer extends Component {
               </div>
             </div>
           </div>
-
           <div className="KitFooter">
             <span className="installText">Installation Path</span>
             <input className="KitInput" type="text" onChange={event => this.props.setDirectory(event.target.value)} placeholder="Enter the directory path" />
           </div>
-
         </div>
         <div className="KitReadme">
         </div>
