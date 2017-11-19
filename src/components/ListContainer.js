@@ -12,7 +12,7 @@ export default class ListContainer extends Component {
     asdf = this.props.data["Starter-kit"]
 
     var tifOptions = Object.keys(this.props.data["Starter-kit"]).map(function(key) {
-      return <ListItem data={asdf.key} />
+      return <ListItem data={asdf.datakey} />
     });
 
     return (
