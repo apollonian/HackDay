@@ -5,6 +5,7 @@
   "main": "src/electron-starter.js",
   "dependencies": {
     "async": "^2.6.0",
+    "electron-packager": "^9.1.0",
     "firebase": "^4.6.2",
     "react": "^16.1.1",
     "react-custom-scrollbars": "^4.2.1",
@@ -15,6 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:win32": "electron-packager . Parcel --app-bundle-id=codepad --overwrite --platform=win32 --arch=ia32 --icon=public/favicon.ico --prune=true --out=dist --version-string.ProductName=Parcel --version-string.FileDescription=Parcel",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "electron": "electron ."

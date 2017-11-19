@@ -9,12 +9,8 @@ let asdf
 
 export default class ListContainer extends Component {
   render() {
-    asdf = this.props.data["Starter-kit"]
-
-    var tifOptions = Object.keys(this.props.data["Starter-kit"]).map(function(key) {
-      return <ListItem data={asdf.key} />
-    });
-
+    // console.log(this.props.data)
+    const tifOptions = this.props.data.map(x => <ListItem key={x.url} x={x} handleKitClick={this.props.handleKitClick}/>); 
     return (
       <div className="ListContainer">
         <h1 className="Header">Featured Kits</h1>
