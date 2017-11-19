@@ -4,6 +4,10 @@ import ListContainer from './components/ListContainer.js';
 import MainContainer from './components/MainContainer.js';
 import KitContainer from './components/KitContainer.js';
 
+import db from './helper/dbAccess.js';
+import execute from './helper/execute.js';
+
+
 import './App.css';
 
 class App extends Component {
@@ -40,6 +44,13 @@ class App extends Component {
   }
 
   render() {
+    if(this.state.tech.length > 0 ) {
+      db.tag_search(this.state.tech, function(err, res){
+        if (!err) {
+          console.log(res);
+        }
+      });
+    }
     return (
       <div className="App">
         <ListContainer handleKitClick={this.handleKitClick} />
