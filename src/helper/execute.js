@@ -12,7 +12,6 @@ function RunInstruction(instruction) {
     });
 }
 
-
 module.exports = {
     getFilePath,
     RunInstruction

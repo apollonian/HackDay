@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { renderMd } from "../helper/mdRender.js";
 
 import './KitContainer.css';
 
