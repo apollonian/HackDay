@@ -16,7 +16,7 @@ class App extends Component {
     this.state = {
       directory: null,
       starterKitID: null,
-      platform: null,
+      // platform: null,
       tech: [],
     }
   }
@@ -25,9 +25,9 @@ class App extends Component {
     this.state.starterKitID === i ? this.setState({ starterKitID: null }) : this.setState({ starterKitID: i })
   }
 
-  handlePlatformClick = (i) => {
-    this.state.platform === i ? this.setState({ platform: null }) : this.setState({ platform: i })
-  }
+  // handlePlatformClick = (i) => {
+  //   this.state.platform === i ? this.setState({ platform: null }) : this.setState({ platform: i })
+  // }
 
   handleTechClick = (i) => {
     let tempTech = this.state.tech.slice();
@@ -40,7 +40,7 @@ class App extends Component {
   }
 
   setDirectory = (e) => {
-    e === "" ?this.setState({ directory: null }) : this.setState({ directory: e });
+    e === "" ? this.setState({ directory: null }) : this.setState({ directory: e });
   }
 
   render() {
@@ -55,16 +55,16 @@ class App extends Component {
       <div className="App">
         <ListContainer handleKitClick={this.handleKitClick} />
         {
-          (this.state.starterKitID === null || this.state.directory === null) ?
+          this.state.starterKitID === null ?
+          // (this.state.starterKitID === null || this.state.directory === null) ?
           <MainContainer
-            handlePlatformClick={this.handlePlatformClick}
+            // handlePlatformClick={this.handlePlatformClick}
             handleTechClick={this.handleTechClick}
-            setDirectory={this.setDirectory}
-            directory={this.state.directory}
           /> :
           <KitContainer
             starterKitID={this.state.starterKitID}
             handleKitClick={this.handleKitClick}
+            setDirectory={this.setDirectory}
             directory={this.state.directory}
           />
         }
