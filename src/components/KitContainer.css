@@ -13,10 +13,41 @@
     background-color: rgb(248, 248, 248);
     border-bottom: 1px solid rgb(238, 238, 238);
     position: fixed;
-    width: calc(76% - 24px);
+    width: calc(76%);
     display: flex;
-    padding-left: 24px;
     justify-content: space-between;
+    flex-direction: column;
+}
+
+.KitInput {
+    display: inline-block;
+    border: none;
+    background: transparent;
+    color: white;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 50px;
+    outline: 0;
+    font-size: 16px;
+}
+
+.KitFooter {
+    background: #16171A;
+    box-shadow: 0 4px 8px rgba(22,23,26,0.15);
+}
+
+.Horiz {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 22px;
+}
+
+.installText {
+    color: #FDFDFD;
+    display: inline-block;
+    font-size: 16px;
+    padding: 12px 24px;
 }
 
 .tag {
@@ -35,7 +66,7 @@
 
 .InstallButton {
     font-size: 18px;
-    background-color: silver;
+    background-color: #3ECF8E;
     padding: 0 42px;
     height: 100%;
     align-items: center;
@@ -51,9 +82,9 @@
     padding: 12px 0;
     width: 100%;
     text-align: center;
-    background-color: red;
+    background-color: #F96854;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .InstallButton {

@@ -8,9 +8,9 @@ export default class ListItem extends Component {
       <div className="ListItem" onClick={() => this.props.handleKitClick(2)}>
         <div className="Inline">
         <span className="KitName">Kit Name</span>
-        <span className="StarCount">200</span>
+        <span className="StarCount">200 ⭐</span>
         </div>
-        <span className="AuthorName">Author Name</span>
+        <span className="AuthorName co-2">Author Name</span>
       </div>
     );
   }

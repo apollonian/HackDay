@@ -24,9 +24,8 @@
     font-size: 20px;
 }
 
-.AuthorName,
-.StarCount {
-    font-size: 14px;
+.AuthorName {
+    font-size: 16px;
 }
 
 .Inline,
