@@ -10,7 +10,7 @@ export default class KitContainer extends Component {
       console.log(x);
       x.id == this.props.starterKitID
     }));
-    const {name,tags} = this.props.data.filter(x => x.id == this.props.starterKitID);
+    const { name, tags } = this.props.data.filter(x => x.id == this.props.starterKitID);
     console.log(name);
     return (
       <div className="KitContainer">

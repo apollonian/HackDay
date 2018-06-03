@@ -1,25 +1,60 @@
 const electron = require('electron')
+const path = require('path')
+const isDev = require('electron-is-dev')
+
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
-
-const path = require('path')
-const url = require('url')
+const logger = console
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600
+  })
 
   // and load the index.html of the app.
-  mainWindow.loadURL(path.join('file://', __dirname, '/build/index.html'))
+  mainWindow.loadURL(
+    isDev ?
+      'http://localhost:3000' :
+      path.join('file://', __dirname, '/build/index.html')
+  )
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+
+  mainWindow.webContents.once('dom-ready', () => {
+    // For development mode open the browser devtools, and install the 
+    // Redux and React dev tools
+    if (isDev) {
+      mainWindow.webContents.openDevTools()
+      const {
+        default: installExtension,
+        REACT_DEVELOPER_TOOLS,
+        REDUX_DEVTOOLS,
+      } = require('electron-devtools-installer');
+
+      installExtension(REACT_DEVELOPER_TOOLS.id)
+        .then(name => {
+          logger.log(`Added ${name}`);
+        })
+        .catch(err => {
+          logger.log('An error occurred: ', err);
+        });
+
+      installExtension(REDUX_DEVTOOLS)
+        .then(name => {
+          logger.log(`Added ${name}`);
+        })
+        .catch(err => {
+          logger.log('An error occurred: ', err);
+        });
+    }
+  })
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -51,6 +86,3 @@ app.on('activate', function () {
     createWindow()
   }
 })
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.

@@ -7,9 +7,7 @@ import KitContainer from './components/KitContainer.js';
 import db from './helper/dbAccess.js';
 import execute from './helper/execute.js';
 
-
 import './App.css';
-
 
 class App extends Component {
   constructor(props) {
@@ -112,31 +110,31 @@ class App extends Component {
         "webpack"
       ]
     }
-  ]
-  return(
-      <div className = "App" >
-      <ListContainer
-        data={data}
-        handleKitClick={this.handleKitClick} />
+    ]
+    return (
+      <div className="App" >
+        <ListContainer
+          data={data}
+          handleKitClick={this.handleKitClick} />
         {
           this.state.starterKitID === null ?
-        // (this.state.starterKitID === null || this.state.directory === null) ?
-        <MainContainer
-          // handlePlatformClick={this.handlePlatformClick}
+            // (this.state.starterKitID === null || this.state.directory === null) ?
+            <MainContainer
+              // handlePlatformClick={this.handlePlatformClick}
 
-          handleTechClick={this.handleTechClick}
-        /> :
-        <KitContainer
-          data = {data}
-          starterKitID={this.state.starterKitID}
-          handleKitClick={this.handleKitClick}
-          setDirectory={this.setDirectory}
-          directory={this.state.directory}
-        />
+              handleTechClick={this.handleTechClick}
+            /> :
+            <KitContainer
+              data={data}
+              starterKitID={this.state.starterKitID}
+              handleKitClick={this.handleKitClick}
+              setDirectory={this.setDirectory}
+              directory={this.state.directory}
+            />
         }
       </div>
     );
-}
+  }
 }
 
 export default App;

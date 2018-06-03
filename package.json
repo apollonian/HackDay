@@ -3,25 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "main": "src/electron-starter.js",
-  "dependencies": {
-    "async": "^2.6.0",
-    "electron-packager": "^9.1.0",
-    "firebase": "^4.6.2",
-    "react": "^16.1.1",
-    "react-custom-scrollbars": "^4.2.1",
-    "react-dom": "^16.1.1",
-    "react-scripts": "1.0.17",
-    "showdown": "^1.8.2"
-  },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"cross-env BROWSER=none yarn react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
     "build": "react-scripts build",
     "build:win32": "electron-packager . Parcel --app-bundle-id=codepad --overwrite --platform=win32 --arch=ia32 --icon=public/favicon.ico --prune=true --out=dist --version-string.ProductName=Parcel --version-string.FileDescription=Parcel",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "electron": "electron ."
   },
+  "dependencies": {
+    "async": "^2.6.0",
+    "electron-is-dev": "^0.3.0",
+    "electron-packager": "^9.1.0",
+    "firebase": "^4.6.2",
+    "react": "16.2.0",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-dom": "16.2.0",
+    "react-scripts": "^1.1.4",
+    "showdown": "^1.8.2"
+  },
   "devDependencies": {
-    "electron": "^1.7.9"
+    "concurrently": "^3.5.1",
+    "cross-env": "^5.1.6",
+    "electron": "^2.0.2",
+    "electron-devtools-installer": "^2.2.4",
+    "eslint-plugin-react": "^7.8.2",
+    "prettier": "^1.13.4",
+    "wait-on": "^2.1.0"
   }
 }

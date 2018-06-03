@@ -25,7 +25,7 @@ export default class MainContainer extends Component {
               React
             </a>
             <a className="Button Tech React" onClick={() => this.props.handleTechClick("react-native")}>
-              React<br/>Native
+              React<br />Native
             </a>
             <a className="Button Tech React" onClick={() => this.props.handleTechClick("preact")}>
               Preact
