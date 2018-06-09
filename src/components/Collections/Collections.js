@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import './MainContainer.css';
+import './Collections.css';
 
-export default class MainContainer extends Component {
+class Collections extends Component {
   render() {
     // console.log(this.props.data["Starter-kit"].);
     return (
@@ -53,3 +53,5 @@ export default class MainContainer extends Component {
     );
   }
 }
+
+export default Collections;

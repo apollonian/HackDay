@@ -15,8 +15,11 @@ let mainWindow
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600
+    width: 1024,
+    height: 632,
+    minWidth: 800,
+    // titleBarStyle: 'hidden',
+    // frame: false,
   })
 
   // and load the index.html of the app.
@@ -28,7 +31,7 @@ function createWindow() {
 
 
   mainWindow.webContents.once('dom-ready', () => {
-    // For development mode open the browser devtools, and install the 
+    // For development mode open the browser devtools, and install the
     // Redux and React dev tools
     if (isDev) {
       mainWindow.webContents.openDevTools()
