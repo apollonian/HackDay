@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import './Content.css';
+import execute from '../../helpers/execute.js'
 
 const { dialog } = window.require('electron').remote;
 
@@ -24,6 +25,14 @@ class Content extends React.Component {
     this.setState({ path: folderPaths[0] });
   });
 
+  install = (kit) => {
+    execute.getFilePath(this.state.path)
+    execute.gitClone(kit.url);
+    // kit.instructions.forEach(ins => {
+    //   execute.RunInstriction(ins)
+    // }); 
+  }
+
   render() {
     const { kit } = this.props;
     const { path } = this.state;
@@ -43,7 +52,7 @@ class Content extends React.Component {
                 CANCEL
               </div>
               <div className="InstallButton">
-                INSTALL
+                <button onClick={() => this.install(kit)}>INSTALL</button>
               </div>
             </div>
           </div>
