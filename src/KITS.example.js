@@ -57,6 +57,21 @@ const KITS = [{
         "react-router",
         "webpack"
     ]
+}, 
+// A small testing kit.  
+{
+    "id": "9",
+    "url": "https://github.com/Jay9596/fav",
+    "name": "test",
+    "author": "Jay9596",
+    "star": "0",
+    "instructions": [
+        "git log"
+    ],
+    "tags": [
+        "test1",
+        "test2"
+    ]
 }
 ]
 
