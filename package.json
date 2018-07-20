@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "babel-eslint": "8",
-    "concurrently": "^3.5.1",
+    "concurrently": "^3.6.0",
     "cross-env": "^5.1.6",
     "electron": "^2.0.2",
     "electron-devtools-installer": "^2.2.4",
